@@ -120,7 +120,9 @@ tasks["makePatches"].inputs.files(createRenameTask("un", jdtSrcDir, patches.targ
 sourceSets["main"].java.srcDirs(renameTask)
 
 tasks.jar.configure {
-    manifest.attributes(mapOf("Automatic-Module-Name" to "org.cadixdev.$artifactId"))
+    manifest.attributes(mapOf("Automatic-Module-Name" to "org.cadixdev.$artifactId",
+        "Main-Class" to "org.cadixdev.mercury.Main"))
+
 }
 
 tasks.withType<Test> {
@@ -163,7 +165,8 @@ artifacts {
 
 license {
     setHeader(file("HEADER"))
-    exclude("org.cadixdev.$artifactId.jdt.".replace('.', '/'))
+    # I don't care about license checks
+    exclude("/")
 }
 
 tasks.withType<GenerateModuleMetadata> {
