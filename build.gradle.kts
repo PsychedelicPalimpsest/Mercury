@@ -140,7 +140,7 @@ tasks.jar {
 
 tasks.shadowJar {
     archiveClassifier.set("")
-    configurations = listOf(project.configurations["jdt"])
+    configurations = listOf(project.configurations.runtimeClasspath.get())
     relocate("org.apache", "org.cadixdev.mercury.shadow.org.apache")
     relocate("org.eclipse", "org.cadixdev.mercury.shadow.org.eclipse")
     relocate("org.osgi", "org.cadixdev.mercury.shadow.org.osgi")
@@ -165,7 +165,7 @@ artifacts {
 
 license {
     setHeader(file("HEADER"))
-    # I don't care about license checks
+    // I don't care about license checks
     exclude("/")
 }
 
