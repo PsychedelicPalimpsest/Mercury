@@ -54,6 +54,8 @@ dependencies {
     }
 
     implementation("net.fabricmc:mapping-io:0.7.1")
+    implementation("com.google.code.gson:gson:2.13.2")
+
     api("net.fabricmc:tiny-remapper:0.11.0")
     compileOnly("org.jetbrains:annotations:26.0.2")
 
